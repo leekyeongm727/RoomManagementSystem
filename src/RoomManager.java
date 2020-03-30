@@ -38,7 +38,36 @@ public class RoomManager {
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
 		if (room.number == roomNum) {
-			System.out.println("the room to be edited is "+roomNum);
+			int num =-1;
+			while(num !=5) {
+				System.out.println("** Room Info EditMenu ** ");
+				System.out.println(" 1. Edit Room Number ");
+				System.out.println(" 2. Edit Money ");
+				System.out.println(" 3. Edit Pay Method ");
+				System.out.println(" 4. Edit Requirements ");
+				System.out.println(" 5. Exit ");
+				System.out.println(" Select one number between 1-5 : ");
+				num=input.nextInt();
+				if (num==1) {
+					System.out.print("Room Number:");
+					room.number =input.nextInt();
+				}
+				else if (num==2) {
+					System.out.print("Received Amount:");
+					room.money =input.nextInt();
+				}
+				else if (num==3) {
+					System.out.print("Payment method:");
+					room.pay=input.next();
+			    }
+				else if (num==4) {
+					System.out.print("Requirements:");
+					room.requirement=input.next();
+			    }
+				else {
+					continue;
+				}
+			}
 		}
 	}
 	
