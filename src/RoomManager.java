@@ -1,14 +1,15 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RoomManager {
-	Room room;
+	ArrayList<Room> rooms = new ArrayList<Room>();
 	Scanner input;
 	RoomManager(Scanner input){
 		this.input = input;
 	}
 	
 	public void addRoom() {
-		room = new Room();
+		Room room = new Room();
 		System.out.print("Room Number:");
 		room.number =input.nextInt();
 		System.out.print("Received Amount:");
@@ -17,26 +18,35 @@ public class RoomManager {
 		room.pay=input.next();
 		System.out.print("Requirements:");
 		room.requirement=input.next();
-
-
+		rooms.add(room);
 	}
 	
 	public void deleteRoom() {
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
-		if (room == null) {
+		int index = -1;
+		for (int i = 0; i<rooms.size(); i++) {
+			if (rooms.get(i).number == roomNum) {
+				index = i;
+				break;
+			}
+		}
+		if (index >= 0) {
+			rooms.remove(index);
+			Room.numRoomsRegistered--;
+			System.out.println("the room "+ roomNum+" is deleted");
+		}
+		else {
 			System.out.println("the room has not been registered");
-			return;
-		}
-		if (room.number == roomNum) {
-			room  = null;
-			System.out.println("the room is deleted");
-		}
+			return;	
+		}	
 	}
 	
 	public void editRoom() {		
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
+		for (int i = 0; i<rooms.size(); i++) {
+			Room room = rooms.get(i);
 		if (room.number == roomNum) {
 			int num =-1;
 			while(num !=5) {
@@ -66,17 +76,19 @@ public class RoomManager {
 			    }
 				else {
 					continue;
-				}
-			}
-		}
+				} //if
+			} //while
+			break;
+		  } //if
+		} //for
 	}
 	
-    public void viewRoom() {
-		System.out.print("Room Number:");
-		int roomNum=input.nextInt();
-		if (room.number == roomNum) {
-			room.printInfo();
+    public void viewRooms() {
+//		System.out.print("Room Number:");
+//		int roomNum=input.nextInt();
+    	System.out.println("# of registered rooms:" +Room.numRoomsRegistered);
+		for (int i = 0; i<rooms.size(); i++) {
+			rooms.get(i).printInfo();
 		}
 	}
-
 }
