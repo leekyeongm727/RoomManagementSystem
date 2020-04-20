@@ -9,8 +9,11 @@ public class Room {
 	protected String pay;
 	protected String requirement;
 
-	
 	public Room() {
+	}
+	
+	public Room(RoomKind kind) {
+		this.kind=kind;
 	}
 	
 	public Room(int number, int money) {
@@ -19,6 +22,14 @@ public class Room {
 	}
 	
 	public Room(int number, int money, String pay, String requirement) {
+		this.number = number;
+		this.money = money;
+		this.pay = pay;
+		this.requirement = requirement;
+	}
+	
+	public Room(RoomKind kind, int number, int money, String pay, String requirement) {
+		this.kind = kind;
 		this.number = number;
 		this.money = money;
 		this.pay = pay;
@@ -66,7 +77,23 @@ public class Room {
 	}
 	
 	public void  printInfo() {
-		System.out.println("number:"+number+" money:"+money+" pay method:"+ pay+" requirement:"+requirement);
+		String skind = "none";
+		switch(this.kind) {
+		case Coin:
+			skind="Coin";
+			break;
+		case Half_hour:
+			skind="30 minutes";
+			break;
+		case One_hour:
+			skind="1 hour";
+			break;
+		case Eighty_minutes:
+			skind="80 minutes";
+			break;
+		default:		
+		}
+		System.out.println("kind:"+skind+" number:"+number+" money:"+money+" pay method:"+ pay+" requirement:"+requirement);
 	}
 	
 	public void getUserInput(Scanner input) {

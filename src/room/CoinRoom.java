@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class CoinRoom extends Room {
 	
+	public CoinRoom(RoomKind kind) {
+		super(kind);
+	}
+
 	public void getUserInput(Scanner input) {
 		System.out.print("Room Number:");
 		int number =input.nextInt();
@@ -34,7 +38,7 @@ public class CoinRoom extends Room {
 			else {
 			}
 		}
-	
+
 	}
 
 }

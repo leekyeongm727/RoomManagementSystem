@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class MenuManager {
 	public static void main(String[] args) {
-        Scanner input= new Scanner(System.in);
+		Scanner input= new Scanner(System.in);
 		RoomManager roomManager = new RoomManager(input);
-		
+
 		int num =-1;
 		while(num !=5) {
 			System.out.println("*** Room Management System *** ");
@@ -23,19 +23,19 @@ public class MenuManager {
 			}
 			else if (num==3) {
 				roomManager.editRoom();
-		    }
+			}
 			else if (num==4) {
 				roomManager.viewRooms();
-		    }
+			}
 			else {
 				continue;
 			}
 		}
-		
+
 	}
 	public static void addRoom() {
 		Scanner input=new Scanner(System.in);
-		
+
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
 		System.out.print("Received Amount:");
@@ -47,28 +47,28 @@ public class MenuManager {
 
 
 	}
-	
+
 	public static void deleteRoom() {
 		Scanner input=new Scanner(System.in);
-		
+
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
 	}
-	
+
 	public static void editRoom() {
 		Scanner input=new Scanner(System.in);
-		
+
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
-		
+
 	}
-	
-    public static void viewRoom() {
+
+	public static void viewRoom() {
 		Scanner input=new Scanner(System.in);
-		
+
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
 	}
-	}
+}
 
 
