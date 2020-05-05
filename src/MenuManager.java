@@ -7,30 +7,37 @@ public class MenuManager {
 
 		int num =-1;
 		while(num !=5) {
-			System.out.println("*** Room Management System *** ");
-			System.out.println(" 1. Add Room ");
-			System.out.println(" 2. Delete Room ");
-			System.out.println(" 3. Edit Room ");
-			System.out.println(" 4. View Rooms ");
-			System.out.println(" 5. Exit ");
-			System.out.println(" Select one number between 1-5 : ");
+			showMenu();
 			num=input.nextInt();
-			if (num==1) {
+			switch(num) {
+			case 1:
 				roomManager.addRoom();
-			}
-			else if (num==2) {
+				break;
+			case 2:
 				roomManager.deleteRoom();
-			}
-			else if (num==3) {
+				break;
+			case 3:
 				roomManager.editRoom();
-			}
-			else if (num==4) {
+				break;
+			case 4:
 				roomManager.viewRooms();
-			}
-			else {
+				break;
+			default:
 				continue;
+				
 			}
 		}
+
+	}
+	
+	public static void showMenu() {
+		System.out.println("*** Room Management System *** ");
+		System.out.println(" 1. Add Room ");
+		System.out.println(" 2. Delete Room ");
+		System.out.println(" 3. Edit Room ");
+		System.out.println(" 4. View Rooms ");
+		System.out.println(" 5. Exit ");
+		System.out.println(" Select one number between 1-5 : ");
 
 	}
 	public static void addRoom() {

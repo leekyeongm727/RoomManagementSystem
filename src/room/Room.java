@@ -2,7 +2,7 @@ package room;
 
 import java.util.Scanner;
 
-public class Room {
+public abstract class Room implements RoomInput {
 	protected RoomKind kind = RoomKind.Half_hour; 
 	protected int number;
 	protected int money;
@@ -75,8 +75,33 @@ public class Room {
 	public void setRequirement(String requirement) {
 		this.requirement = requirement;
 	}
+	public abstract void  printInfo();
 	
-	public void  printInfo() {
+	public void setRoomNumber(Scanner input) {
+		System.out.print("Room Number:");
+		int number =input.nextInt();
+		this.setNumber(number);
+	}
+	
+	public void setRoomMoney(Scanner input) {
+		System.out.print("Received Amount:");
+		int money =input.nextInt();
+		this.setMoney(money);
+	}
+	
+	public void setRoomPay(Scanner input) {
+		System.out.print("Payment method:");
+		String pay=input.next();
+		this.setPay(pay);
+	}
+	
+	public void setRoomRequirements(Scanner input) {
+		System.out.print("Requirements:");
+		String requirement=input.next();
+		this.setRequirement(requirement);
+	}
+	
+	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {
 		case Coin:
@@ -93,25 +118,7 @@ public class Room {
 			break;
 		default:		
 		}
-		System.out.println("kind:"+skind+" number:"+number+" money:"+money+" pay method:"+ pay+" requirement:"+requirement);
-	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("Room Number:");
-		int number =input.nextInt();
-		this.setNumber(number);
-		
-		System.out.print("Received Amount:");
-		int money =input.nextInt();
-		this.setMoney(money);
-		
-		System.out.print("Payment method:");
-		String pay=input.next();
-		this.setPay(pay);
-		
-		System.out.print("Requirements:");
-		String requirement=input.next();
-		this.setRequirement(requirement);
+		return skind;
 	}
 
 }

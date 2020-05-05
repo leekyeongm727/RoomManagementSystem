@@ -3,11 +3,13 @@ import java.util.Scanner;
 
 import room.CoinRoom;
 import room.Eighty_minutesRoom;
+import room.One_hourRoom;
 import room.Room;
+import room.RoomInput;
 import room.RoomKind;
 
 public class RoomManager {
-	ArrayList<Room> rooms = new ArrayList<Room>();
+	ArrayList<RoomInput> rooms = new ArrayList<RoomInput>();
 	Scanner input;
 	RoomManager(Scanner input){
 		this.input = input;
@@ -15,29 +17,29 @@ public class RoomManager {
 
 	public void addRoom() {
 		int kind=0;
-		Room room;
+		RoomInput roomInput;
 		while (kind !=1 && kind !=2) {
 			System.out.println(" 1 for Coin ");
-			System.out.println(" 2 for Half_hour ");
-			System.out.println(" 3 for One_hour ");
+			System.out.println(" 2 for One_hour");
+			System.out.println(" 3 for Eighty_minutes ");
 			System.out.print(" Select num 1, 2, or 3 for Room Kind: ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				room = new CoinRoom(RoomKind.Coin);
-				room.getUserInput(input);
-				rooms.add(room);
+				roomInput = new CoinRoom(RoomKind.Coin);
+				roomInput.getUserInput(input);
+				rooms.add(roomInput);
 				break;
 			}
 			else if (kind ==2){
-				room = new Room(RoomKind.Half_hour);
-				room.getUserInput(input);
-				rooms.add(room);
+				roomInput = new One_hourRoom(RoomKind.One_hour);
+				roomInput.getUserInput(input);
+				rooms.add(roomInput);
 				break;
 			}
 			else if (kind ==3){
-				room = new Eighty_minutesRoom(RoomKind.One_hour);
-				room.getUserInput(input);
-				rooms.add(room);
+				roomInput = new Eighty_minutesRoom(RoomKind.Eighty_minutes);
+				roomInput.getUserInput(input);
+				rooms.add(roomInput);
 				break;
 			}
 			else {
@@ -49,6 +51,11 @@ public class RoomManager {
 	public void deleteRoom() {
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
+		int index = findIndex(roomNum);
+		removefromRooms(index, roomNum);
+	}
+	
+	public int findIndex(int roomNum) {
 		int index = -1;
 		for (int i = 0; i<rooms.size(); i++) {
 			if (rooms.get(i).getNumber() == roomNum) {
@@ -56,55 +63,47 @@ public class RoomManager {
 				break;
 			}
 		}
+		return index;
+	}
+	
+	public int removefromRooms(int index,int roomNum) {
 		if (index >= 0) {
 			rooms.remove(index);
 			System.out.println("the room "+ roomNum+" is deleted");
+			return 1;
 		}
 		else {
 			System.out.println("the room has not been registered");
-			return;	
+			return -1;	
 		}	
 	}
 
-	public void editRoom() {		
+	public void editRoom() {	
 		System.out.print("Room Number:");
 		int roomNum=input.nextInt();
 		for (int i = 0; i<rooms.size(); i++) {
-			Room room = rooms.get(i);
+			RoomInput room = rooms.get(i);
 			if (room.getNumber() == roomNum) {
 				int num =-1;
 				while(num !=5) {
-					System.out.println("** Room Info EditMenu ** ");
-					System.out.println(" 1. Edit Room Number ");
-					System.out.println(" 2. Edit Money ");
-					System.out.println(" 3. Edit Pay Method ");
-					System.out.println(" 4. Edit Requirements ");
-					System.out.println(" 5. Exit ");
-					System.out.println(" Select one number between 1-5 : ");
+					showEditMenu();
 					num=input.nextInt();
-					if (num==1) {
-						System.out.print("Room Number:");
-						int number =input.nextInt();
-						room.setNumber(number);
-					}
-					else if (num==2) {
-						System.out.print("Received Amount:");
-						int money =input.nextInt();
-						room.setMoney(money);
-					}
-					else if (num==3) {
-						System.out.print("Payment method:");
-						String pay=input.next();
-						room.setPay(pay);
-					}
-					else if (num==4) {
-						System.out.print("Requirements:");
-						String requirement=input.next();
-						room.setRequirement(requirement);
-					}
-					else {
+					switch(num){
+					case 1:
+						room.setRoomNumber(input);
+						break;
+					case 2:
+						room.setRoomMoney(input);
+						break;
+					case 3:
+						room.setRoomPay(input);
+						break;
+					case 4:
+						room.setRoomRequirements(input);
+						break;
+					default:
 						continue;
-					} //if
+					}
 				} //while
 				break;
 			} //if
@@ -112,11 +111,21 @@ public class RoomManager {
 	}
 
 	public void viewRooms() {
-		//		System.out.print("Room Number:");
-		//		int roomNum=input.nextInt();
 		System.out.println("# of registered rooms:" + rooms.size());
 		for (int i = 0; i<rooms.size(); i++) {
 			rooms.get(i).printInfo();
 		}
+	}
+	
+
+	
+	public void showEditMenu() {
+		System.out.println("** Room Info EditMenu ** ");
+		System.out.println(" 1. Edit Room Number ");
+		System.out.println(" 2. Edit Money ");
+		System.out.println(" 3. Edit Pay Method ");
+		System.out.println(" 4. Edit Requirements ");
+		System.out.println(" 5. Exit ");
+		System.out.println(" Select one number between 1-5 : ");
 	}
 }
