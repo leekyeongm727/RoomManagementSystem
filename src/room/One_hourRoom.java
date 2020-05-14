@@ -2,7 +2,7 @@ package room;
 
 import java.util.Scanner;
 
-public class One_hourRoom extends Room {
+public class One_hourRoom extends LongTermRoom {
 	
 	public One_hourRoom(RoomKind kind) {
 		super(kind);
@@ -14,8 +14,5 @@ public class One_hourRoom extends Room {
 		setRoomPay(input);
 		setRoomRequirements(input);
 	}
-	public void  printInfo() {
-		String skind =getKindString();
-		System.out.println("kind:"+skind+" number:"+number+" money:"+money+" pay method:"+ pay+" requirement:"+requirement);
-	}
+	
 }

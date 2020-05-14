@@ -2,11 +2,13 @@ package room;
 
 import java.util.Scanner;
 
+import exceptions.RequirementFormatException;
+
 public class Eighty_minutesRoom extends LongTermRoom {
-	
+
 	protected String dutch_pay;
 	protected String co_requirement;
-	
+
 	public Eighty_minutesRoom(RoomKind kind) {
 		super(kind);
 	}
@@ -24,15 +26,21 @@ public class Eighty_minutesRoom extends LongTermRoom {
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.print("Do you have a team who came with ? (Y/N)");
 			answer = input.next().charAt(0);
-			if (answer == 'y' || answer =='Y') {
-				setRoomRequirements(input);
-				break;
+			try{
+				if (answer == 'y' || answer =='Y') {
+
+					setRoomRequirements(input);
+					break;
+				}
+				else if (answer == 'n' || answer =='N') {
+					this.setRequirement("");
+					break;
+				}
+				else {
+				}
 			}
-			else if (answer == 'n' || answer =='N') {
-				this.setRequirement("");
-				break;
-			}
-			else {
+			catch(RequirementFormatException e) {
+				System.out.println("Incorrect Requirement Format. put the requirement that contains -");
 			}
 		}
 	}

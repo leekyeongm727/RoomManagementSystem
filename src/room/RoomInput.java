@@ -2,6 +2,8 @@ package room;
 
 import java.util.Scanner;
 
+import exceptions.RequirementFormatException;
+
 public interface RoomInput {
 	
 	public int getNumber();
@@ -12,7 +14,7 @@ public interface RoomInput {
 	
 	public void setPay(String pay);
 	
-	public void setRequirement(String requirement);
+	public void setRequirement(String requirement) throws RequirementFormatException;
 	
 	public void getUserInput(Scanner input);
 	

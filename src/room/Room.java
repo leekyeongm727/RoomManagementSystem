@@ -2,6 +2,8 @@ package room;
 
 import java.util.Scanner;
 
+import exceptions.RequirementFormatException;
+
 public abstract class Room implements RoomInput {
 	protected RoomKind kind = RoomKind.Half_hour; 
 	protected int number;
@@ -72,9 +74,13 @@ public abstract class Room implements RoomInput {
 		return requirement;
 	}
 
-	public void setRequirement(String requirement) {
+	public void setRequirement(String requirement) throws RequirementFormatException {
+		if (!requirement.contains("-")&& !requirement.contentEquals("")) {
+			throw new RequirementFormatException();
+		}
 		this.requirement = requirement;
 	}
+	
 	public abstract void  printInfo();
 	
 	public void setRoomNumber(Scanner input) {
@@ -98,7 +104,11 @@ public abstract class Room implements RoomInput {
 	public void setRoomRequirements(Scanner input) {
 		System.out.print("Requirements:");
 		String requirement=input.next();
-		this.setRequirement(requirement);
+		try {
+			this.setRequirement(requirement);
+		} catch(RequirementFormatException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String getKindString() {
