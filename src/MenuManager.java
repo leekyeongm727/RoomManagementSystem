@@ -5,10 +5,10 @@ public class MenuManager {
 	public static void main(String[] args) {
 		Scanner input= new Scanner(System.in);
 		RoomManager roomManager = new RoomManager(input);
-		
+
 		selectMenu(input, roomManager);
 	}
-	
+
 	public static void selectMenu(Scanner input,RoomManager roomManager) {
 		int num =-1;
 		while(num !=5) {
@@ -51,42 +51,6 @@ public class MenuManager {
 		System.out.println(" Select one number between 1-5 : ");
 
 	}
-//	public static void addRoom() {
-//		Scanner input=new Scanner(System.in);
-//
-//		System.out.print("Room Number:");
-//		int roomNum=input.nextInt();
-//		System.out.print("Received Amount:");
-//		int money=input.nextInt();
-//		System.out.print("Payment method:");
-//		String pay=input.next();
-//		System.out.print("Requirements:");
-//		String requirement=input.next();
-//
-//
-//	}
-
-//	public static void deleteRoom() {
-//		Scanner input=new Scanner(System.in);
-//
-//		System.out.print("Room Number:");
-//		int roomNum=input.nextInt();
-//	}
-//
-//	public static void editRoom() {
-//		Scanner input=new Scanner(System.in);
-//
-//		System.out.print("Room Number:");
-//		int roomNum=input.nextInt();
-//
-//	}
-
-//	public static void viewRoom() {
-//		Scanner input=new Scanner(System.in);
-//
-//		System.out.print("Room Number:");
-//		int roomNum=input.nextInt();
-//	}
 }
 
 

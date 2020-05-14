@@ -59,7 +59,7 @@ public class RoomManager {
 	}
 
 	public void deleteRoom() {
-		System.out.print("Room Number:");
+		System.out.print("Room Number: ");
 		int roomNum=input.nextInt();
 		int index = findIndex(roomNum);
 		removefromRooms(index, roomNum);
@@ -89,7 +89,7 @@ public class RoomManager {
 	}
 
 	public void editRoom() {	
-		System.out.print("Room Number:");
+		System.out.print("Room Number: ");
 		int roomNum=input.nextInt();
 		for (int i = 0; i<rooms.size(); i++) {
 			RoomInput room = rooms.get(i);
@@ -126,7 +126,6 @@ public class RoomManager {
 			rooms.get(i).printInfo();
 		}
 	}
-
 
 
 	public void showEditMenu() {

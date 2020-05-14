@@ -13,23 +13,23 @@ public abstract class Room implements RoomInput {
 
 	public Room() {
 	}
-	
+
 	public Room(RoomKind kind) {
 		this.kind=kind;
 	}
-	
+
 	public Room(int number, int money) {
 		this.number = number;
 		this.money = money;
 	}
-	
+
 	public Room(int number, int money, String pay, String requirement) {
 		this.number = number;
 		this.money = money;
 		this.pay = pay;
 		this.requirement = requirement;
 	}
-	
+
 	public Room(RoomKind kind, int number, int money, String pay, String requirement) {
 		this.kind = kind;
 		this.number = number;
@@ -37,7 +37,7 @@ public abstract class Room implements RoomInput {
 		this.pay = pay;
 		this.requirement = requirement;
 	}
-	
+
 	public RoomKind getKind() {
 		return kind;
 	}
@@ -80,27 +80,27 @@ public abstract class Room implements RoomInput {
 		}
 		this.requirement = requirement;
 	}
-	
+
 	public abstract void  printInfo();
-	
+
 	public void setRoomNumber(Scanner input) {
 		System.out.print("Room Number:");
 		int number =input.nextInt();
 		this.setNumber(number);
 	}
-	
+
 	public void setRoomMoney(Scanner input) {
 		System.out.print("Received Amount:");
 		int money =input.nextInt();
 		this.setMoney(money);
 	}
-	
+
 	public void setRoomPay(Scanner input) {
 		System.out.print("Payment method:");
 		String pay=input.next();
 		this.setPay(pay);
 	}
-	
+
 	public void setRoomRequirements(Scanner input) {
 		System.out.print("Requirements:");
 		String requirement=input.next();
@@ -110,7 +110,7 @@ public abstract class Room implements RoomInput {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {
