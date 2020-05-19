@@ -14,7 +14,7 @@ public class RoomManager implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -7145817887352811727L;
-	
+
 	ArrayList<RoomInput> rooms = new ArrayList<RoomInput>();
 	transient Scanner input;
 	RoomManager(Scanner input){

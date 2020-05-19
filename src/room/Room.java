@@ -135,6 +135,5 @@ public abstract class Room implements RoomInput, Serializable {
 		}
 		return skind;
 	}
-
 }
 

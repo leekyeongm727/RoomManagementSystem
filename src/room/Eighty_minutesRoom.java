@@ -45,8 +45,6 @@ public class Eighty_minutesRoom extends LongTermRoom {
 		}
 	}
 
-
-
 	public void  printInfo() {
 		String skind =getKindString();
 		System.out.println("kind:"+skind+" number:"+number+" money:"+money+" pay method:"+ pay+" requirement:"+requirement+"  dutch_pay:"+ pay+" team_came_with:"+requirement);

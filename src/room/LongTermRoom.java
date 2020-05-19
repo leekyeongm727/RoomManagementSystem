@@ -26,7 +26,7 @@ public abstract class LongTermRoom extends Room {
 			answer = input.next().charAt(0);
 			try{
 				if (answer == 'y' || answer =='Y') {
-					System.out.print(" Requirement: ");
+					System.out.print("Requirement: ");
 					String requirement = input.next();
 					this.setRequirement(requirement);
 					break;
