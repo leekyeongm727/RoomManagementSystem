@@ -1,10 +1,15 @@
 package room;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exceptions.RequirementFormatException;
 
-public abstract class Room implements RoomInput {
+public abstract class Room implements RoomInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8116529501112589592L;
 	protected RoomKind kind = RoomKind.Half_hour; 
 	protected int number;
 	protected int money;
@@ -132,3 +137,4 @@ public abstract class Room implements RoomInput {
 	}
 
 }
+

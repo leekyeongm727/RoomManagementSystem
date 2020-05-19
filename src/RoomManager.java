@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -5,13 +6,17 @@ import java.util.Scanner;
 import room.CoinRoom;
 import room.Eighty_minutesRoom;
 import room.One_hourRoom;
-import room.Room;
 import room.RoomInput;
 import room.RoomKind;
 
-public class RoomManager {
+public class RoomManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7145817887352811727L;
+	
 	ArrayList<RoomInput> rooms = new ArrayList<RoomInput>();
-	Scanner input;
+	transient Scanner input;
 	RoomManager(Scanner input){
 		this.input = input;
 	}

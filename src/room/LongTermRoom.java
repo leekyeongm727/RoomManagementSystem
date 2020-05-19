@@ -43,6 +43,5 @@ public abstract class LongTermRoom extends Room {
 				System.out.println("Incorrext Requirement Format. Put the Requirement that contains -");
 			}
 		}
-
 	}
 }
