@@ -132,7 +132,6 @@ public class RoomManager implements Serializable{
 		}
 	}
 
-
 	public void showEditMenu() {
 		System.out.println("** Room Info EditMenu ** ");
 		System.out.println(" 1. Edit Room Number ");

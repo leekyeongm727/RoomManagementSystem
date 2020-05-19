@@ -5,5 +5,4 @@ public enum RoomKind {
 	Half_hour,
 	One_hour,
 	Eighty_minutes
-	
 }

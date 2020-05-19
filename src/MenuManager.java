@@ -25,6 +25,7 @@ public class MenuManager {
 
 	public static void selectMenu(Scanner input,RoomManager roomManager) {
 		int num =-1;
+		
 		while(num !=5) {
 			try {
 				showMenu();
