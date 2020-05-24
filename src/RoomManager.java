@@ -20,6 +20,10 @@ public class RoomManager implements Serializable{
 	RoomManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
 
 	public void addRoom() {
 		int kind=0;

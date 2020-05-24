@@ -18,6 +18,9 @@ public class MenuManager {
 		if (roomManager == null) {
 			roomManager = new RoomManager(input);
 		}
+		else {
+			roomManager.setScanner(input);
+		}
 
 		selectMenu(input, roomManager);
 		putObject(roomManager, "roommaneger.ser");
