@@ -48,5 +48,4 @@ public class RoomAdder extends JFrame {
 		this.setContentPane(panel);
 		this.setVisible(true);
 	}
-
 }
