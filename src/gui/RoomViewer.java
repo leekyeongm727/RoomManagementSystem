@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 public class RoomViewer extends JFrame{
 
 	public RoomViewer() {
+		
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Number");
 		model.addColumn("Money");

@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 public class MenuSelection extends JFrame{
 	
 	public MenuSelection() {
-		
 		this.setSize(300,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
