@@ -1,8 +1,6 @@
-/MenuManager.class
-/RoomManager.class
-/exceptions/
 /gui/
-/log/
+/manager/
+/MenuManager.class
 /room/
-/ButtonViewListener.class
 /listeners/
+/event/

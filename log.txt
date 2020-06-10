@@ -1,4 +1,0 @@
-5월 24, 2020 12:53:30 오후 log.EventLogger log
-정보: add a room
-5월 24, 2020 12:53:40 오후 log.EventLogger log
-정보: view a list of room

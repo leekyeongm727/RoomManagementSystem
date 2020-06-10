@@ -3,38 +3,36 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.RoomManager;
+
 public class WindowFrame extends JFrame{
 
-	MenuSelection menuselection;
+	RoomManager roomManager;
+	MenuSelection menuSelection;
 	RoomAdder roomadder;
 	RoomViewer roomviwer;
 
-	public WindowFrame() {
-		this.menuselection = new MenuSelection(this);
-		this.roomadder = new RoomAdder(this);
-		this. roomviwer = new RoomViewer(this);
-		
+	public WindowFrame(RoomManager roomManager) {
 		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
-		this.setupPanel(menuselection);
+		this.setTitle("My Frame");
+		
+		this.roomManager = roomManager;
+		menuSelection = new MenuSelection(this);
+		roomadder = new RoomAdder(this);
+		roomviwer = new RoomViewer(this, this.roomManager);
+		
+		this.add(menuSelection);
 		
 		this.setVisible(true);
 	}
-
-	public void setupPanel(JPanel panel) {
-		this.getContentPane().removeAll();
-		this.getContentPane().add(panel);
-		this.revalidate();
-		this.repaint();
-	}
 	
 	public MenuSelection getMenuselection() {
-		return menuselection;
+		return menuSelection;
 	}
 
 	public void setMenuselection(MenuSelection menuselection) {
-		this.menuselection = menuselection;
+		this.menuSelection = menuselection;
 	}
 
 	public RoomAdder getRoomadder() {
@@ -45,7 +43,7 @@ public class WindowFrame extends JFrame{
 		this.roomadder = roomadder;
 	}
 
-	public RoomViewer getRoomviwer() {
+	public RoomViewer getRoomviewer() {
 		return roomviwer;
 	}
 

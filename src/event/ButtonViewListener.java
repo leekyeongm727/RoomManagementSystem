@@ -1,26 +1,26 @@
-package listeners;
+package event;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import gui.RoomAdder;
 import gui.RoomViewer;
 import gui.WindowFrame;
 
-public class ButtonAddListener implements ActionListener {
+public class ButtonViewListener implements ActionListener {
 	
 	WindowFrame frame;
 
-	public ButtonAddListener(WindowFrame frame) {
+	public ButtonViewListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton) e.getSource();
-		RoomAdder adder = frame.getRoomadder();
-		frame.setupPanel(adder);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame.getRoomviewer());
+		frame.revalidate();
+		frame.repaint();		
 
 	}
 
